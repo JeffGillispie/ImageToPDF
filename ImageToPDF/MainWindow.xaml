@@ -1,0 +1,29 @@
+﻿<Window x:Class="ImageToPDF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageToPDF"
+        mc:Ignorable="d"
+        Title="Image To PDF" Height="300" Width="525">
+    <StackPanel Orientation="Vertical">
+        <TextBlock TextWrapping="WrapWithOverflow" Margin="10">Image to PDF takes an OPT or LFP load file, imports the images, then converts them to PDFs saving them to the selected destination folder.</TextBlock>
+        <StackPanel Orientation="Horizontal" Margin="5,10,5,5">
+            <Label Width="80" HorizontalContentAlignment="Right">Load File</Label>
+            <TextBox Name="infileTextbox" Width="350" AllowDrop="True" PreviewDragEnter="textbox_DragEnter" PreviewDrop="textbox_Drop" PreviewDragOver="textbox_DragEnter" />
+            <Button Name="infileButton" Width="60" Click="infileButton_Click">Browse</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Width="80" HorizontalContentAlignment="Right">Destination</Label>
+            <TextBox Name="outfileTextBox" Width="350" AllowDrop="True" PreviewDragEnter="textbox_DragEnter" PreviewDrop="textbox_Drop" PreviewDragOver="textbox_DragEnter" />
+            <Button Name="outfileButton" Width="60" Click="outfileButton_Click">Browse</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Width="85" HorizontalContentAlignment="Right">Threads</Label>
+            <TextBox Name="throttleTextbox" Width="50" IsReadOnly="True" Background="LightGray" HorizontalContentAlignment="Center" />
+            <Slider Name="throttleSlider" Width="220" TickFrequency="1" TickPlacement="BottomRight" Minimum="1" IsSnapToTickEnabled="True" Margin="10,0,0,0" ValueChanged="throttleSlider_ValueChanged" />
+        </StackPanel>
+        <ProgressBar Name="convertProgress" Height="30" Margin="10" />
+        <Button Name="convertButton" Width="100" Margin="20" Click="convertButton_Click">Convert Files</Button>
+    </StackPanel>
+</Window>
